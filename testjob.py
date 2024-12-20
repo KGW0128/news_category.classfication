@@ -141,3 +141,4 @@ df.drop_duplicates(inplace=True)
 print(df.head())
 df.info()
 print(df.category.value_counts())
+
