@@ -78,10 +78,30 @@ print(X[:5])
 
 
 #형태소 하나하나 숫자 라벨링
+#유니크한 숫자로 라벨링함
 token = Tokenizer()
 token.fit_on_texts(X)
 tokened_X = token.texts_to_sequences(X)
 wordsize = len(token.word_index) + 1
-
+print(wordsize)
 
 print(tokened_X[:5])
+
+#데이터 길이를 맞춰주기 위해 모자른 단어는 앞에 0을 채움(빈 문자 넣기)
+
+#제일 긴 문장의 길이
+#최대값 찾기 알고리즘
+max =0
+for i in range(len(tokened_X)):
+    if max<len(tokened_X[i]):
+        max = len(tokened_X[i])
+
+#최대값 출력
+print(max)
+
+
+
+#max값의 길이가 되도록 자동으로 0 붙힘
+X_pad = pad_sequences(tokened_X, max)
+print(X_pad)
+print(len(X_pad[0]))
