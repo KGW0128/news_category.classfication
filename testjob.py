@@ -15,14 +15,16 @@ import os
 from pandas.compat.numpy import np_long
 
 
-
+#뉴스 카테고리 list
 category = ['Politics','Economic','Social','Culture','World','IT']
 
 
-
+#크롬에서 연다
+#열어볼 주소
 options = ChromeOptions()
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
 
+#한글만 긁어옴
 options.add_argument('user_agent='+user_agent)
 options.add_argument('lang=ko_KR')
 
@@ -44,14 +46,8 @@ for page_i in range(6):
     if page_i==1 :#경제일 때만 주소 다름
         button_xpath = '//*[@id="newsct"]/div[5]/div/div[2]'#경제 버튼주소
     else:
-        button_xpath = '//*[@id="newsct"]/div[4]/div/div[2]'
+        button_xpath = '//*[@id="newsct"]/div[4]/div/div[2]'#나머지 버튼 주소
 
-#정치: //*[@id="newsct"]/div[4]/div/div[2]/a
-#경제: //*[@id="newsct"]/div[5]/div/div[2]/a
-#사회: //*[@id="newsct"]/div[4]/div/div[2]/a
-#생활: //*[@id="newsct"]/div[4]/div/div[2]/a
-#IT : //*[@id="newsct"]/div[4]/div/div[2]/a
-#세계: //*[@id="newsct"]/div[4]/div/div[2]/a
 
 
     # 버튼을 15번 정도 누르기
@@ -64,7 +60,8 @@ for page_i in range(6):
     # 뉴스 제목 수집
     for i in range(1, 98):
         titles = []
-
+        
+        #한 문단에 6개씩 있음
         for j in range(1, 7):
 
             if page_i==1:
@@ -73,6 +70,7 @@ for page_i in range(6):
                 title_xpath = '//*[@id="newsct"]/div[4]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i, j)  # 정치 제목주소
 
             try:
+                #한글을 제외한 모든 문자 제거 후 저장
                 title = driver.find_element(By.XPATH, title_xpath).text
                 title = re.compile('[^가-힣 ]').sub('', title)
                 titles.append(title)  # 리스트에 추가
