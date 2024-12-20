@@ -1,95 +1,118 @@
+# 필요한 라이브러리 임포트
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
-from setuptools.package_index import user_agent
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException
 import pandas as pd
 import re
 import time
 import datetime
+import os
 
-#뉴스 제목 카테고리
-category = ['Politics','Economic','Social','Culture','World','IT']
+# 뉴스 카테고리 리스트 정의
+category = ['Politics', 'Economic', 'Social', 'Culture', 'World', 'IT']
 
-
-#데이터 프레임 초기화
-df_titles = pd.DataFrame()
-
-
+# 크롬 브라우저 옵션 설정
 options = ChromeOptions()
 user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+options.add_argument('user_agent=' + user_agent)  # 사용자 에이전트 설정
+options.add_argument('lang=ko_KR')  # 언어 설정
 
-options.add_argument('user_agent='+user_agent)
-options.add_argument('lang=ko_KR')
-
+# 크롬 드라이버 초기화
 service = ChromeService(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=options)
 
-url = 'https://news.naver.com/section/100'#정치 사이트주소
-#url = 'https://news.naver.com/section/101'#경제 사이트주소
-driver.get(url)#브라우저 띄우기
+# 카테고리별 뉴스 크롤링 시작
+for page_i in range(6):
+    # 데이터프레임 초기화
+    df_titles = pd.DataFrame()
 
-#버튼 생성이 될때까지 기다리는 딜레이
+    # 카테고리에 따른 URL 설정
+    url = 'https://news.naver.com/section/10{}'.format(page_i)
+    driver.get(url)  # 브라우저 실행
+    time.sleep(1)  # 페이지 로드 대기
+
+    # 더보기 버튼 XPATH 정의 (카테고리에 따라 다름)
+    if page_i == 1:  # 경제 카테고리
+        button_xpath = '//*[@id="newsct"]/div[5]/div/div[2]'
+    else:  # 나머지 카테고리
+        button_xpath = '//*[@id="newsct"]/div[4]/div/div[2]'
+
+    # 더보기 버튼 클릭 (15번 반복)
+    for i in range(15):
+        time.sleep(1)
+        driver.find_element(By.XPATH, button_xpath).click()
+
+    # 뉴스 제목 수집
+    for i in range(1, 98):  # 뉴스 블록 탐색
+        titles = []
+        for j in range(1, 7):  # 각 블록 내 뉴스 항목 탐색
+            if page_i == 1:  # 경제 카테고리
+                title_xpath = '//*[@id="newsct"]/div[5]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i, j)
+            else:  # 다른 카테고리
+                title_xpath = '//*[@id="newsct"]/div[4]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i, j)
+
+            try:
+                # 뉴스 제목 크롤링 및 한글 외 문자 제거
+                title = driver.find_element(By.XPATH, title_xpath).text
+                title = re.compile('[^가-힣 ]').sub('', title)
+                titles.append(title)
+            except:  # 예외 처리 (존재하지 않는 항목 무시)
+                print('pass: ', i, j)
+
+        # 크롤링된 제목을 데이터프레임에 저장
+        df_section_titles = pd.DataFrame(titles, columns=['titles'])
+        df_section_titles['category'] = category[page_i]
+        df_titles = pd.concat([df_titles, df_section_titles], axis='rows', ignore_index=True)
+
+    # 카테고리별 데이터프레임 정보 출력
+    print(df_titles.head())
+    df_titles.info()
+    print(df_titles['category'].value_counts())
+
+    # 제목 리스트 초기화
+    titles.clear()
+
+    # 카테고리별 데이터를 CSV 파일로 저장
+    df_titles.to_csv('./crawling_data/{}_naver_headline_news{}.csv'.format(
+        category[page_i], datetime.datetime.now().strftime('%Y%m%d')), index=False)
+
+# 브라우저 대기
 time.sleep(1)
 
-#버튼 더보기 주소
-button_xpath = '//*[@id="newsct"]/div[4]/div/div[2]'#정치 버튼주소
-#button_xpath = '//*[@id="newsct"]/div[5]/div/div[2]'#경제 버튼주소
+# 병합할 CSV 파일이 있는 폴더 경로 설정
+folder_path = 'C:/workspace/news_category_classfication/crawling_data'
 
+# 폴더 내 파일 확인
+try:
+    files_in_folder = os.listdir(folder_path)
+    print(f"폴더 내 파일: {files_in_folder}")
+except FileNotFoundError:  # 폴더가 없을 경우 예외 처리
+    print(f"폴더 경로가 올바르지 않습니다: {folder_path}")
 
-#버튼을 15번 정도 누르기
-for i in range(15):
-    time.sleep(0.5)
-    driver.find_element(By.XPATH, button_xpath).click()
+# CSV 파일 필터링
+csv_files = [file for file in files_in_folder if file.endswith('.csv')]
+print(f"CSV 파일 목록: {csv_files}")
 
+# CSV 파일 병합
+if csv_files:
+    dataframes = [pd.read_csv(os.path.join(folder_path, file)) for file in csv_files]
+    merged_df = pd.concat(dataframes, ignore_index=True)
 
+    # 병합된 결과를 저장
+    output_path = os.path.join(folder_path, "all_naver_headline_news.csv")
+    merged_df.to_csv(output_path, index=False)
+    print(f"병합된 파일이 저장되었습니다: {output_path}")
+else:
+    print("CSV 파일이 폴더에 없습니다.")
 
+# 병합된 CSV 파일 확인
+df = pd.read_csv('./crawling_data/all_naver_headline_news.csv')
 
-
-#사이트 규칙 찾은 후 데이터 수집
-for i in range(1,98):
-    # txt로 변환된 타이틀을 한글제외 가공해서 넣을 list변수
-    titles = []
-
-    for j in range(1,7):
-
-        title_xpath = '//*[@id="newsct"]/div[4]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i,j)#정치 제목주소
-        #title_xpath = '//*[@id="newsct"]/div[5]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i,j)#경제 제목주소
-        try:
-            title = driver.find_element(By.XPATH, title_xpath).text
-            title = re.compile('[^가-힣 ]').sub('', title)
-            titles.append(title)  #리스트에 추가
-
-        except:#예외처리(없는건 그냥 넘어가라)
-            print('pass: ',i, j)
-
-    # 데이터프레임 생성 (컬럼: 제목, 카테고리)
-    df_section_titles = pd.DataFrame(titles, columns=['titles'])
-    df_section_titles['category'] = category[0]#경제list
-    #df_section_titles['category'] = category[1]#정치list
-
-    # 최종 데이터프레임에 카테고리별 뉴스 제목 추가
-    df_titles = pd.concat([df_titles, df_section_titles], axis='rows', ignore_index=True)
-
-
-# 데이터프레임 확인
-print(df_titles.head())
-df_titles.info()
-print(df_titles['category'].value_counts())
-
-
-# CSV 파일로 저장 (파일명: naver_headline_news_YYYYMMDD.csv)
-#datetime.datetime.now() :현재 시간을 알려줌
-df_titles.to_csv('./crawling_data/Politics_naver_headline_news{}.csv'.format(
-    datetime.datetime.now().strftime('%Y%m%d')), index=False)
-
-# df_titles.to_csv('./crawling_data/Economic_naver_headline_news{}.csv'.format(
-#     datetime.datetime.now().strftime('%Y%m%d')), index=False)
-
-
-time.sleep(3)
-
-#driver.close()#브라우저 닫기
+# 중복 데이터 제거 및 정보 출력
+df.drop_duplicates(inplace=True)
+print(df.head())
+df.info()
+print(df.category.value_counts())

@@ -98,3 +98,5 @@ np.save('./crawling_data/news_data_X_train_max_{}_wordsize_{}'.format(max, words
 np.save('./crawling_data/news_data_Y_train_max_{}_wordsize_{}'.format(max, wordsize), Y_train)
 np.save('./crawling_data/news_data_X_test_max_{}_wordsize_{}'.format(max, wordsize), X_test)
 np.save('./crawling_data/news_data_Y_test_max_{}_wordsize_{}'.format(max, wordsize), Y_test)
+
+

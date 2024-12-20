@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="ㅇ" />
+    <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="ㅇ">
+      <change afterPath="$PROJECT_DIR$/job04_model_learning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job02_crawling_news_titles.py" beforeDir="false" afterPath="$PROJECT_DIR$/job02_crawling_news_titles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job03_preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/job03_preprocessing.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
