@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="ㅇ">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job01_crawling_headline.py" beforeDir="false" afterPath="$PROJECT_DIR$/job01_crawling_headline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job02_crawling_news_titles.py" beforeDir="false" afterPath="$PROJECT_DIR$/job02_crawling_news_titles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job03_preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/job03_preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testjob.py" beforeDir="false" afterPath="$PROJECT_DIR$/testjob.py" afterDir="false" />
-    </list>
+    <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="ㅇ" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
