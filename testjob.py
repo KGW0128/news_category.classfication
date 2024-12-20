@@ -142,4 +142,3 @@ print(df.head())
 df.info()
 print(df.category.value_counts())
 
-

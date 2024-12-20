@@ -90,12 +90,6 @@ df_titles.to_csv('./crawling_data/Politics_naver_headline_news{}.csv'.format(
 #     datetime.datetime.now().strftime('%Y%m%d')), index=False)
 
 
-
-
-
 time.sleep(3)
 
 #driver.close()#브라우저 닫기
-
-
-

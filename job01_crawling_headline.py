@@ -59,3 +59,4 @@ print(df_titles['category'].value_counts())
 #datetime.datetime.now() :현재 시간을 알려줌
 df_titles.to_csv('./crawling_data/naver_headline_news{}.csv'.format(
     datetime.datetime.now().strftime('%Y%m%d')), index=False)
+
