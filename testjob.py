@@ -99,6 +99,8 @@ for page_i in range(6):
     df_titles.to_csv('./crawling_data/{}_naver_headline_news{}.csv'.format(
         category[page_i], datetime.datetime.now().strftime('%Y%m%d')), index=False)
 
+
+
 time.sleep(1)
 
 
