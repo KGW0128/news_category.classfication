@@ -20,7 +20,8 @@ df_titles = pd.DataFrame()
 
 
 options = ChromeOptions()
-user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0'
+user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'
+
 options.add_argument('user_agent='+user_agent)
 options.add_argument('lang=ko_KR')
 
@@ -45,14 +46,18 @@ for i in range(15):
     driver.find_element(By.XPATH, button_xpath).click()
 
 
-#txt로 변환된 타이틀을 한글제외 가공해서 넣을 list변수
-titles = []
+
+
 
 #사이트 규칙 찾은 후 데이터 수집
 for i in range(1,98):
+    # txt로 변환된 타이틀을 한글제외 가공해서 넣을 list변수
+    titles = []
+
     for j in range(1,7):
+
         title_xpath = '//*[@id="newsct"]/div[4]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i,j)#정치 제목주소
-        #title_xpath = '//*[@id="newsct"]/div[5]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i,j)#경제 제목ㄴ주소
+        #title_xpath = '//*[@id="newsct"]/div[5]/div/div[1]/div[{}]/ul/li[{}]/div/div/div[2]/a/strong'.format(i,j)#경제 제목주소
         try:
             title = driver.find_element(By.XPATH, title_xpath).text
             title = re.compile('[^가-힣 ]').sub('', title)
@@ -83,6 +88,9 @@ df_titles.to_csv('./crawling_data/Politics_naver_headline_news{}.csv'.format(
 
 # df_titles.to_csv('./crawling_data/Economic_naver_headline_news{}.csv'.format(
 #     datetime.datetime.now().strftime('%Y%m%d')), index=False)
+
+
+
 
 
 time.sleep(3)
