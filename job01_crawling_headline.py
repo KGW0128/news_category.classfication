@@ -4,6 +4,7 @@ import re
 import pandas as pd
 import datetime
 
+#리퀘스트를 이용해서
 # 네이버 뉴스에서 긁어와서 자료 만듬(crawilng)
 
 #뉴스 제목 카테고리
@@ -37,8 +38,8 @@ for i in range(6):
         title = title_tag.text # 태그에서 텍스트만 추출
 
         # 한글을 제외한 모든 문자 제거(특수문자, 숫자 포함)
-        #가~힣까지를 제외한 나머지를 null값으로 대체
-        title = re.compile('[^가-힣 ]').sub('',title)
+        #가~힣까지를 제외한 나머지를 띄어쓰기값으로 대체
+        title = re.compile('[^가-힣 ]').sub(' ',title)
 
         titles.append(title) # 리스트에 추가
 

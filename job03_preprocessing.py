@@ -10,6 +10,9 @@ from konlpy.tag import Okt, Kkma  # 한글 형태소 분석기
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
+#데이터 전처리 과정
+
+
 # CSV 파일 불러오기 및 중복 제거
 df = pd.read_csv('./crawling_data/all_naver_headline_news.csv')
 df.drop_duplicates(inplace=True)  # 중복 데이터 제거
@@ -52,7 +55,7 @@ for i in range(len(X)):
 print(X)  # 분석 결과 확인
 
 # 불용어 처리
-stopwords = pd.read_csv('./crawling_data/stopwords.csv', index_col=0)
+stopwords = pd.read_csv('stopwords_data/stopwords.csv', index_col=0)
 print(stopwords)
 
 # 불용어 및 한 글자 단어 제거
@@ -74,6 +77,9 @@ tokened_X = token.texts_to_sequences(X)  # 텍스트를 정수 시퀀스로 변�
 wordsize = len(token.word_index) + 1  # 고유 단어 수 + 1
 print(wordsize)
 
+
+
+
 print(tokened_X[:5])  # 라벨링 결과 일부 확인
 
 # 입력 데이터 길이 맞추기 (패딩)
@@ -83,6 +89,12 @@ for i in range(len(tokened_X)):
     if max < len(tokened_X[i]):
         max = len(tokened_X[i])
 print(max)  # 최대 길이 출력
+
+#토근을 저장
+with open('./models/news_token_MAX_{}.pickle'.format(max),'wb') as f:
+    pickle.dump(token, f)
+
+
 
 X_pad = pad_sequences(tokened_X, max)  # 패딩 추가
 print(X_pad)

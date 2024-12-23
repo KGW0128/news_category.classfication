@@ -72,7 +72,7 @@ for page_i in range(6):
             try:
                 #한글을 제외한 모든 문자 제거 후 저장
                 title = driver.find_element(By.XPATH, title_xpath).text
-                title = re.compile('[^가-힣 ]').sub('', title)
+                title = re.compile('[^가-힣 ]').sub(' ', title)
                 titles.append(title)  # 리스트에 추가
 
             except:  # 예외처리(없는건 그냥 넘어가라)

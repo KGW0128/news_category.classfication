@@ -5,7 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/job05_model_pre.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawling_data/all_naver_headline_news.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawling_data/news_data_X_test_max_16_wordsize_6452.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawling_data/news_data_X_train_max_16_wordsize_6452.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawling_data/news_data_Y_test_max_16_wordsize_6452.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawling_data/news_data_Y_train_max_16_wordsize_6452.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/crawling_data/stopwords.csv" beforeDir="false" afterPath="$PROJECT_DIR$/stopwords_data/stopwords.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job01_crawling_headline.py" beforeDir="false" afterPath="$PROJECT_DIR$/job01_crawling_headline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job02_crawling_news_titles.py" beforeDir="false" afterPath="$PROJECT_DIR$/job02_crawling_news_titles.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job03_preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/job03_preprocessing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job04_model_learning.py" beforeDir="false" afterPath="$PROJECT_DIR$/job04_model_learning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/news_catepory_classfication_model_0.6973294019699097.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testjob.py" beforeDir="false" afterPath="$PROJECT_DIR$/testjob.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,18 +57,71 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.job03_preprocessing.executor&quot;: &quot;Run&quot;,
-    &quot;Python.job04_model_learning.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/workspace/news_category_classfication&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.job01_crawling_headline.executor": "Run",
+    "Python.job02_crawling_news_titles.executor": "Run",
+    "Python.job03_preprocessing.executor": "Run",
+    "Python.job04_model_learning.executor": "Run",
+    "Python.job05_model_pre.executor": "Run",
+    "Python.testjob.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/workspace/news_category_classfication",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
-  <component name="RunManager" selected="Python.job04_model_learning">
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\workspace\news_category_classfication\stopwords_data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.job05_model_pre">
+    <configuration name="job01_crawling_headline" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="news_category_classfication_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/job01_crawling_headline.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="job02_crawling_news_titles" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="news_category_classfication_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/job02_crawling_news_titles.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="job03_preprocessing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="news_category_classfication_home" />
       <option name="ENV_FILES" value="" />
@@ -100,10 +166,35 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="job05_model_pre" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="news_category_classfication_home" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/job05_model_pre.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.job05_model_pre" />
         <item itemvalue="Python.job04_model_learning" />
+        <item itemvalue="Python.job01_crawling_headline" />
         <item itemvalue="Python.job03_preprocessing" />
+        <item itemvalue="Python.job02_crawling_news_titles" />
       </list>
     </recent_temporary>
   </component>
