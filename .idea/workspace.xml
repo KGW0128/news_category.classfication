@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="12/23 추가수정">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawling_data/news_data_X_test_max_16_wordsize_6452.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawling_data/news_data_X_train_max_16_wordsize_6452.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawling_data/news_data_Y_test_max_16_wordsize_6452.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawling_data/news_data_Y_train_max_16_wordsize_6452.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/job04_model_learning.py" beforeDir="false" afterPath="$PROJECT_DIR$/job04_model_learning.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job05_model_pre.py" beforeDir="false" afterPath="$PROJECT_DIR$/job05_model_pre.py" afterDir="false" />
-    </list>
+    <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="데이터 삭제" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +65,7 @@
       <recent name="C:\workspace\news_category_classfication\stopwords_data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.job05_model_pre">
+  <component name="RunManager" selected="Python.job01_crawling_headline">
     <configuration name="job01_crawling_headline" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="news_category_classfication_home" />
       <option name="ENV_FILES" value="" />
@@ -186,10 +178,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.job01_crawling_headline" />
         <item itemvalue="Python.job05_model_pre" />
         <item itemvalue="Python.job04_model_learning" />
         <item itemvalue="Python.job03_preprocessing" />
-        <item itemvalue="Python.job01_crawling_headline" />
         <item itemvalue="Python.job02_crawling_news_titles" />
       </list>
     </recent_temporary>
@@ -234,13 +226,31 @@
       <option name="project" value="LOCAL" />
       <updated>1734931368787</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="모델 재학습(72%)">
+      <option name="closed" value="true" />
+      <created>1734934054813</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1734934054813</updated>
+    </task>
+    <task id="LOCAL-00005" summary="데이터 삭제">
+      <option name="closed" value="true" />
+      <created>1734934090875</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734934090875</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="복원파일들" />
     <MESSAGE value="ㅇ" />
     <MESSAGE value="12/23 추가수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="12/23 추가수정" />
+    <MESSAGE value="모델 재학습(72%)" />
+    <MESSAGE value="데이터 삭제" />
+    <option name="LAST_COMMIT_MESSAGE" value="데이터 삭제" />
   </component>
 </project>
