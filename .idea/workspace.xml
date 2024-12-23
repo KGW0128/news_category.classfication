@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/job05_model_pre.py" afterDir="false" />
+    <list default="true" id="317ba875-0272-4a4b-bb58-de8d4b015e82" name="변경" comment="12/23 추가수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawling_data/all_naver_headline_news.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crawling_data/news_data_X_test_max_16_wordsize_6452.npy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crawling_data/news_data_X_train_max_16_wordsize_6452.npy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crawling_data/news_data_Y_test_max_16_wordsize_6452.npy" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/crawling_data/news_data_Y_train_max_16_wordsize_6452.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crawling_data/stopwords.csv" beforeDir="false" afterPath="$PROJECT_DIR$/stopwords_data/stopwords.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job01_crawling_headline.py" beforeDir="false" afterPath="$PROJECT_DIR$/job01_crawling_headline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job02_crawling_news_titles.py" beforeDir="false" afterPath="$PROJECT_DIR$/job02_crawling_news_titles.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/job03_preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/job03_preprocessing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/job04_model_learning.py" beforeDir="false" afterPath="$PROJECT_DIR$/job04_model_learning.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/news_catepory_classfication_model_0.6973294019699097.h5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testjob.py" beforeDir="false" afterPath="$PROJECT_DIR$/testjob.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/job05_model_pre.py" beforeDir="false" afterPath="$PROJECT_DIR$/job05_model_pre.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +61,14 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/workspace/news_category_classfication",
+    "last_opened_file_path": "C:/workspace/news_category_classfication/crawling_data",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace\news_category_classfication\crawling_data" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\workspace\news_category_classfication\stopwords_data" />
     </key>
@@ -192,8 +188,8 @@
       <list>
         <item itemvalue="Python.job05_model_pre" />
         <item itemvalue="Python.job04_model_learning" />
-        <item itemvalue="Python.job01_crawling_headline" />
         <item itemvalue="Python.job03_preprocessing" />
+        <item itemvalue="Python.job01_crawling_headline" />
         <item itemvalue="Python.job02_crawling_news_titles" />
       </list>
     </recent_temporary>
@@ -230,12 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1734674596241</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="12/23 추가수정">
+      <option name="closed" value="true" />
+      <created>1734931368787</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734931368787</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="복원파일들" />
     <MESSAGE value="ㅇ" />
-    <option name="LAST_COMMIT_MESSAGE" value="ㅇ" />
+    <MESSAGE value="12/23 추가수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="12/23 추가수정" />
   </component>
 </project>

@@ -94,14 +94,17 @@ print(X_pad[:5])  # 첫 5개의 샘플 출력
 
 #어제 모델과 비교하기
 
-model = load_model('./models/news_catepory_classfication_model_0.6975088715553284.h5')
+model = load_model('./models/news_catepory_classfication_model_0.725978672504425.h5')
 preds = model.predict(X_pad)
 
 predicts = []
 for pred in preds:
-    most = label[np.argmax(pred)]
-    predicts.append(most)
+    most = label[np.argmax(pred)]#최대값
+    pred[np.argmax(pred)] = 0 #제일 큰값을 0으로 해서 두번째 값 출력
+    second = label[np.argmax(pred)]
+    predicts.append([most,second])
 df['predict'] = predicts
+
 print(df.head(30))
 
 
@@ -112,6 +115,6 @@ print(score[1])
 df['OX'] = 0
 for i in range(len(df)):
     #맞으면 1로 덮어씀
-    if df.loc[i,'category'] == df.loc[i,'predict']:
+    if df.loc[i,'category'] in df.loc[i,'predict']:
         df.loc[i, 'OX'] = 1
 print(df.OX.mean())

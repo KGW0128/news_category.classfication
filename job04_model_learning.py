@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, Conv1D, MaxPool1D, LSTM, Dropout, Dense
+from tensorflow.keras.layers import Embedding, Conv1D, MaxPool1D, LSTM, Dropout, Dense, GRU
 import numpy as np
 from tensorflow.python.keras.saving.saved_model.load import metrics
 
@@ -24,16 +24,18 @@ model = Sequential()
 model.add(Embedding(input_dim=5960, output_dim=300))
 
 #문자의 문장 위치(좌,우)의 관계를 학습(위 아래가 없어서 1D, 이미지는 2D)
-model.add(Conv1D(32, kernel_size=5, padding='same', activation='relu'))
+model.add(Conv1D(64, kernel_size=5, padding='same', activation='relu'))
 model.add(MaxPool1D(pool_size=1))
 #return_sequences: 리턴된 모든값(학습하는데 이용된 리턴값)을 저장
 #노션에 RNN부분 확인
-model.add(LSTM(128, activation='tanh', return_sequences=True))
+model.add(GRU(256, activation='tanh', return_sequences=True))
 model.add(Dropout(0.3))
-model.add(LSTM(64, activation='tanh', return_sequences=True))
+model.add(GRU(128, activation='tanh', return_sequences=True))
+model.add(Dropout(0.3))
+model.add(GRU(64, activation='tanh', return_sequences=True))
 model.add(Dropout(0.3))
 #마지막에는 결과값 1개만 보면 되기에 return_sequences을 안씀
-model.add(LSTM(64, activation='tanh'))
+model.add(GRU(64, activation='tanh'))
 model.add(Dropout(0.3))
 model.add(Dense(6, activation='softmax'))
 
